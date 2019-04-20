@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>조회 결과</title>
+</head>
+<body>
+    <h1>온·습도 정보</h1>
+    <table border="1">
+        <tr>
+            <th>센서ID</th>
+            <th>온도</th>
+            <th>습도</th>
+            <th>날짜 및 시간</th>
+        </tr>
+        <% dataList.forEach(function(row, index){ %>
+            <tr>
+                <td><%= row.sensor_id %></td>
+                <td><%= row.temp %></td>
+                <td><%= row.humi %></td>
+                <td><%= row.time %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
