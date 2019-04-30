@@ -5,22 +5,29 @@
     <title>조회 결과</title>
 </head>
 <body>
-    <h1>온·습도 정보</h1>
-    <table border="1">
-        <tr>
-            <th>센서ID</th>
-            <th>온도</th>
-            <th>습도</th>
-            <th>날짜 및 시간</th>
-        </tr>
-        <% dataList.forEach(function(row, index){ %>
+    <h1 align="center">온·습도 정보</h1>
+    <center>
+        <table border="1">
             <tr>
-                <td><%= row.sensor_id %></td>
-                <td><%= row.temp %></td>
-                <td><%= row.humi %></td>
-                <td><%= row.time %></td>
+                <th width=100>센서ID</th>
+                <th width=80>온도</th>
+                <th width=80>습도</th>
+                <th width=200>날짜 및 시간</th>
             </tr>
-        <% }); %>
-    </table>
+            <% function addZero(i) {
+                if (i < 10) {i = "0" + i;}
+                    return i;} %>
+            <% dataList.forEach(function(row, index){ %>
+            <tr>
+                <td align="center"><%= row.sensor_id %></td>
+                <td align="center"><%= row.temp.toFixed(2) %></td>
+                <td align="center"><%= row.humi.toFixed(2) %></td>
+                <td align="center"><%= row.time.getFullYear()+"." + addZero(row.time.getMonth())+"." + row.time.getDate() + " (" + 
+                        addZero(row.time.getHours()) + ":" + addZero(row.time.getMinutes()) + ":" + addZero(row.time.getSeconds()) + 
+                        ")" %></td>
+            </tr>
+            <% }); %>
+        </table>
+    </center>
 </body>
 </html>
