@@ -6,7 +6,7 @@ import pymysql
 import RPi.GPIO as GPIO
 
 sensor = Adafruit_DHT.DHT11
-pin = 2                      # 라즈베리파이에 연결된 핀을 2번 핀으로 설정한다.
+pin = 4                      # 라즈베리파이에 연결된 핀을 2번 핀으로 설정한다.
 sensor_id = "HOME"           # 센서 ID
 # DB 접속 정보
 conn = pymysql.connect(host = "localhost",
